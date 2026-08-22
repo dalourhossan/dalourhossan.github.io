@@ -1,10 +1,838 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dalour Hossan</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Md. Dalour Hossan Saeed — Backend Engineer</title>
+  <meta
+    name="description"
+    content="Md. Dalour Hossan Saeed — Backend Engineer specializing in Java, Spring Boot, distributed systems, cloud infrastructure, and AI-powered applications."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111827;
+      --muted: #667085;
+      --border: #e5e7eb;
+      --card: #f8fafc;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --max-width: 1050px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--max-width));
+      margin: auto;
+    }
+
+    /* Navigation */
+
+    nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 105px 0 90px;
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -2.5px;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 19px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 18px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--text);
+      color: white;
+      border-color: var(--text);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button.primary:hover {
+      background: #000;
+    }
+
+    /* Sections */
+
+    section {
+      padding: 85px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 32px;
+      letter-spacing: -1px;
+      margin-bottom: 38px;
+    }
+
+    /* About */
+
+    .about {
+      max-width: 780px;
+      font-size: 17px;
+      color: var(--muted);
+    }
+
+    .about strong {
+      color: var(--text);
+    }
+
+    /* Experience */
+
+    .experience {
+      display: grid;
+      gap: 35px;
+    }
+
+    .job {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 35px;
+    }
+
+    .job-date {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .job h3 {
+      font-size: 18px;
+      margin-bottom: 3px;
+    }
+
+    .company {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 13px;
+    }
+
+    .job ul {
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .job li {
+      margin-bottom: 6px;
+    }
+
+    /* Projects */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .project {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 27px;
+      transition: 0.2s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-3px);
+      border-color: #cbd5e1;
+    }
+
+    .project h3 {
+      margin-bottom: 10px;
+      font-size: 19px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 3px 8px;
+      font-size: 12px;
+      color: #475467;
+    }
+
+    .project-link {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .project-link:hover {
+      color: var(--accent-dark);
+    }
+
+    /* Skills */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 850px;
+    }
+
+    .skill {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+
+    /* Contact */
+
+    .contact {
+      max-width: 700px;
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .contact-links a {
+      color: var(--accent);
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 28px, var(--max-width));
+      }
+
+      nav {
+        height: 62px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 75px 0 65px;
+      }
+
+      h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .job {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <h1>Welcome to my website!</h1>
-    <p>Hosted directly on GitHub Pages.</p>
+
+  <header class="container">
+    <nav>
+      <a class="logo" href="#">Dalour Hossan</a>
+
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="container" style="border-top: none;">
+      <div class="hero">
+
+        <div class="eyebrow">
+          BACKEND ENGINEER · JAVA · SPRING BOOT · AI
+        </div>
+
+        <h1>
+          I build reliable backend systems that solve real business problems.
+        </h1>
+
+        <p>
+          I'm Md. Dalour Hossan Saeed, a software engineer focused on
+          Java, Spring Boot, distributed systems, cloud infrastructure,
+          performance engineering, and AI-powered applications.
+        </p>
+
+        <div class="buttons">
+          <a
+            class="button primary"
+            href="mailto:saeed.1507036@gmail.com"
+          >
+            Get in touch
+          </a>
+
+          <a
+            class="button"
+            href="https://github.com/dalourhossan"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub
+          </a>
+
+          <a
+            class="button"
+            href="https://www.linkedin.com/in/dalour1507036/"
+            target="_blank"
+            rel="noopener"
+          >
+            LinkedIn
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section>
+      <div class="container">
+
+        <div class="section-label">About</div>
+
+        <h2>Engineering with a business mindset.</h2>
+
+        <div class="about">
+
+          <p>
+            I have experience building production systems across
+            <strong>healthcare, fashion technology, telecommunications,
+            analytics, and AI</strong>.
+          </p>
+
+          <br />
+
+          <p>
+            My work ranges from designing Spring Boot microservices and
+            high-throughput data systems to optimizing APIs, building
+            CI/CD pipelines, managing AWS infrastructure, and integrating
+            modern AI capabilities into products.
+          </p>
+
+          <br />
+
+          <p>
+            I care about <strong>clean architecture, measurable performance,
+            reliability, and software that creates business value.</strong>
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- EXPERIENCE -->
+
+    <section id="work">
+      <div class="container">
+
+        <div class="section-label">Experience</div>
+
+        <h2>Selected experience</h2>
+
+        <div class="experience">
+
+          <article class="job">
+
+            <div class="job-date">
+              Feb 2026 — Present
+            </div>
+
+            <div>
+              <h3>AI Engineer</h3>
+
+              <div class="company">
+                Semmel Health · Remote
+              </div>
+
+              <ul>
+                <li>
+                  Built Vantix, a hospital-integrated microservice platform
+                  for detecting Hospital-Acquired Infections across thousands
+                  of patients daily.
+                </li>
+
+                <li>
+                  Achieved a 5× performance improvement in a SafetyOS
+                  audit microservice through indexing, query optimization,
+                  refactoring, and multithreading.
+                </li>
+
+                <li>
+                  Built automated CI/CD infrastructure that reduced
+                  deployment time to under one minute.
+                </li>
+
+                <li>
+                  Managed AWS infrastructure and led a 4-engineer team
+                  delivering production features and improvements.
+                </li>
+              </ul>
+            </div>
+
+          </article>
+
+
+          <article class="job">
+
+            <div class="job-date">
+              Mar 2025 — Jan 2026
+            </div>
+
+            <div>
+              <h3>Senior Software Engineer</h3>
+
+              <div class="company">
+                Nitex Solutions Ltd · Dhaka
+              </div>
+
+              <ul>
+                <li>
+                  Led development of an AI-powered fashion intelligence
+                  platform that reduced product design R&D cycles by 80%.
+                </li>
+
+                <li>
+                  Built high-throughput analytics systems using ClickHouse
+                  to process millions of records.
+                </li>
+
+                <li>
+                  Integrated Elasticsearch and OpenAI embeddings for
+                  semantic vector search.
+                </li>
+
+                <li>
+                  Improved API performance by 5–10× through query
+                  optimization, multithreading, and refactoring.
+                </li>
+
+                <li>
+                  Built real-time PostgreSQL → Elasticsearch ETL pipelines
+                  and deployed services across AWS and GCP.
+                </li>
+              </ul>
+            </div>
+
+          </article>
+
+
+          <article class="job">
+
+            <div class="job-date">
+              Aug 2023 — Mar 2025
+            </div>
+
+            <div>
+              <h3>Software Engineer</h3>
+
+              <div class="company">
+                Red Dot Digital IT Ltd · Dhaka
+              </div>
+
+              <ul>
+                <li>
+                  Developed and optimized the RDMS platform supporting
+                  Robi Axiata's distribution and inventory operations.
+                </li>
+
+                <li>
+                  Designed features for SIM inventory management and
+                  business promoter operations.
+                </li>
+              </ul>
+            </div>
+
+          </article>
+
+
+          <article class="job">
+
+            <div class="job-date">
+              May 2022 — Jul 2023
+            </div>
+
+            <div>
+              <h3>Junior Software Engineer</h3>
+
+              <div class="company">
+                Nascenia Ltd · Dhaka
+              </div>
+
+              <ul>
+                <li>
+                  Worked on Bengali NLP, conversational AI chatbots,
+                  recommendation systems, and automation.
+                </li>
+
+                <li>
+                  Improved chatbot performance by 20% through dataset
+                  enrichment and user-feedback analysis.
+                </li>
+              </ul>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+      <div class="container">
+
+        <div class="section-label">Projects</div>
+
+        <h2>Selected projects</h2>
+
+        <div class="projects">
+
+
+          <article class="project">
+
+            <h3>Twitter Application</h3>
+
+            <p>
+              A Spring Boot backend demonstrating secure REST API
+              development, layered architecture, persistence, database
+              migrations, exception handling, and batch processing.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Spring Security</span>
+              <span class="tag">JWT</span>
+              <span class="tag">JPA</span>
+              <span class="tag">Liquibase</span>
+            </div>
+
+            <a
+              class="project-link"
+              href="https://github.com/dalourhossan/twitterapplication"
+              target="_blank"
+              rel="noopener"
+            >
+              View project →
+            </a>
+
+          </article>
+
+
+          <article class="project">
+
+            <h3>IPL Dashboard</h3>
+
+            <p>
+              A Spring Boot data application demonstrating batch
+              processing, data ingestion, persistence, and backend
+              APIs around IPL match data.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Spring Batch</span>
+              <span class="tag">JPA</span>
+              <span class="tag">HSQLDB</span>
+            </div>
+
+            <a
+              class="project-link"
+              href="https://github.com/dalourhossan/ipl_dashboard"
+              target="_blank"
+              rel="noopener"
+            >
+              View project →
+            </a>
+
+          </article>
+
+
+          <article class="project">
+
+            <h3>More on GitHub</h3>
+
+            <p>
+              Explore my other experiments, backend projects,
+              data applications, and engineering work.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Backend</span>
+              <span class="tag">AI</span>
+              <span class="tag">Java</span>
+              <span class="tag">Python</span>
+            </div>
+
+            <a
+              class="project-link"
+              href="https://github.com/dalourhossan"
+              target="_blank"
+              rel="noopener"
+            >
+              Explore GitHub →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+      <div class="container">
+
+        <div class="section-label">Technical stack</div>
+
+        <h2>Tools I work with</h2>
+
+        <div class="skills">
+
+          <span class="skill">Java</span>
+          <span class="skill">Spring Boot</span>
+          <span class="skill">Kotlin</span>
+          <span class="skill">Python</span>
+
+          <span class="skill">Spring Security</span>
+          <span class="skill">JPA</span>
+          <span class="skill">REST APIs</span>
+          <span class="skill">Microservices</span>
+
+          <span class="skill">PostgreSQL</span>
+          <span class="skill">MySQL</span>
+          <span class="skill">SQL Server</span>
+          <span class="skill">ClickHouse</span>
+          <span class="skill">Elasticsearch</span>
+          <span class="skill">MongoDB</span>
+
+          <span class="skill">Redis</span>
+          <span class="skill">RabbitMQ</span>
+
+          <span class="skill">AWS</span>
+          <span class="skill">GCP</span>
+          <span class="skill">Docker</span>
+          <span class="skill">Kubernetes</span>
+          <span class="skill">CI/CD</span>
+
+          <span class="skill">RAG</span>
+          <span class="skill">Vector Search</span>
+          <span class="skill">LLM Integration</span>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+      <div class="container">
+
+        <div class="contact">
+
+          <div class="section-label">Contact</div>
+
+          <h2>Let's build something useful.</h2>
+
+          <p>
+            I'm open to remote backend engineering opportunities,
+            consulting, and interesting software projects.
+          </p>
+
+          <div class="contact-links">
+
+            <a href="mailto:saeed.1507036@gmail.com">
+              Email
+            </a>
+
+            <a
+              href="https://github.com/dalourhossan"
+              target="_blank"
+              rel="noopener"
+            >
+              GitHub
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/dalour1507036/"
+              target="_blank"
+              rel="noopener"
+            >
+              LinkedIn
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div class="container">
+      © 2026 Md. Dalour Hossan Saeed
+    </div>
+  </footer>
+
 </body>
 </html>
