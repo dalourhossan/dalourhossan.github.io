@@ -78,6 +78,7 @@
     toggle.addEventListener('click', () => {
       const isOpen = mobileNav.classList.toggle('open');
       toggle.setAttribute('aria-expanded', isOpen.toString());
+      document.body.classList.toggle('menu-open', isOpen);
     });
 
     // Close nav on link click
@@ -85,6 +86,7 @@
       link.addEventListener('click', () => {
         mobileNav.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
       });
     });
   }
